@@ -20,11 +20,18 @@ public class MailServiceTest {
     @Resource
     private TemplateEngine templateEngine;
 
+    /**
+     * 测试发送普通的文本邮件
+     */
     @Test
     public void sendSimpleMessageTest(){
         mailService.sendSimpleMail("wanjun94@qq.com","test","test");
     }
 
+    /**
+     * 测试发送html邮件
+     * @throws MessagingException
+     */
     @Test
     public void sendHtmlTest() throws MessagingException {
         String content = "<html>" +
@@ -35,12 +42,20 @@ public class MailServiceTest {
         mailService.sendHtmlMail("wanjun94@qq.com", "html mail", content);
     }
 
+    /**
+     * 测试发送附件
+     * @throws MessagingException
+     */
     @Test
     public void sendAttachmentMailTest() throws MessagingException {
         String filepath = "/Users/junwan/myapp/测试.txt";
         mailService.sendAttachmentMail("wanjun94@qq.com", "attachment", "附件", filepath);
     }
 
+    /**
+     * 测试发送图片邮件
+     * @throws MessagingException
+     */
     @Test
     public void sendInlineResourceTest() throws MessagingException {
         String path = "/Users/junwan/Downloads/0.jpeg";
@@ -51,6 +66,10 @@ public class MailServiceTest {
                 path, id);
     }
 
+    /**
+     * 测试使用邮件模板发送邮件
+     * @throws MessagingException
+     */
     @Test
     public void testTemplateMailTest() throws MessagingException {
         Context context = new Context();
