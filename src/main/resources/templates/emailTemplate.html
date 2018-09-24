@@ -5,7 +5,11 @@
     <title>邮件模板</title>
 </head>
 <body>
-你好,感谢你的注册这是一封验证邮件,请点击下面的链接完成注册<br/>
-<a href="#" th:href="@{'http://' + ${link}}">激活账号</a>
+<span th:text="${content}"></span><br/>
+<img with="230" height="230" src="https://avatars1.githubusercontent.com/u/16222145?s=460&v=4" /><br/>
+tel:<a th:href="@{'tel:'+${tel}}" th:text="${tel}"></a><br/>
+email:<a th:href="@{'mailto:'+${email}}" th:text="${email}" ></a><br/>
+github:<a href="#" th:href="@{'https://github.com/'+${github}}" th:text="${github}"></a><br/>
+blog:<a href="#" th:href="@{'http://'+${blog}}" th:text="${blog}"></a>
 </body>
 </html>

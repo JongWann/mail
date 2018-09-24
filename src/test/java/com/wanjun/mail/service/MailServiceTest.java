@@ -73,8 +73,11 @@ public class MailServiceTest {
     @Test
     public void testTemplateMailTest() throws MessagingException {
         Context context = new Context();
-        context.setVariable("link","www.baidu.com");
-
+        context.setVariable("content","你今天学习了吗");
+        context.setVariable("tel","15102154475");
+        context.setVariable("email","wanjun94@qq.com");
+        context.setVariable("github","JongWann");
+        context.setVariable("blog","jongwann.github.io");
         String emailContent = templateEngine.process("emailTemplate", context);
 
         mailService.sendHtmlMail("wanjun94@qq.com", "这是一个模板邮件", emailContent);
